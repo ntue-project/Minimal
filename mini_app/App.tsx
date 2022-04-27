@@ -8,6 +8,8 @@ import SplashScreen from "./src/screen/SplashScreen";
 import LinearGradient from "react-native-linear-gradient";
 import LoginScreen from "./src/screen/LoginScreen";
 import {NavigationContainer} from "@react-navigation/native";
+import {Provider} from "react-redux";
+import {store} from "./src/global_state/store";
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -16,11 +18,14 @@ const Tab = createBottomTabNavigator()
 
 const App = () => {
   return (
+      <Provider store={store}>
+
       <SafeAreaProvider>
         <NavigationContainer>
           <Content/>
         </NavigationContainer>
       </SafeAreaProvider>
+      </Provider>
   )
 }
 

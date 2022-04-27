@@ -25,6 +25,9 @@ export const BaseLayout: React.FC<IBaseLayout> = ({children, ...props}) => {
                 flex: 1,
                 justifyContent: props.center ? "center" : props.jCenter ? "center" : props.justify,
                 alignItems: props.center ? "center" : props.aCenter ? "center" : props.align,
+
+                paddingHorizontal: props.px? props.px : undefined,
+                paddingVertical: props.py? props.py : undefined,
                 ...props
             }}>
                 {children}
@@ -50,6 +53,9 @@ export const HStack: React.FC<IStackLayout> = ({children, ...props}) => {
             flexDirection: "row",
             justifyContent: props.center ? "center" : props.jCenter ? "center" : props.justify,
             alignItems: props.center ? "center" : props.aCenter ? "center" : props.align,
+
+            paddingHorizontal: props.px,
+            paddingVertical: props.py,
             ...props
         }}>
             {children}
@@ -74,6 +80,9 @@ export const VStack: React.FC<IStackLayout> = ({children, ...props}) => {
             flexDirection: "column",
             justifyContent: props.center ? "center" : props.jCenter ? "center" : props.justify,
             alignItems: props.center ? "center" : props.aCenter ? "center" : props.align,
+
+            paddingHorizontal: props.px,
+            paddingVertical: props.py,
             ...props
         }}>
             {children}
@@ -98,6 +107,9 @@ export const Center: React.FC<IStackLayout> = ({children, ...props}) => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
+
+            paddingHorizontal: props.px,
+            paddingVertical: props.py,
             ...props
         }}>
             {children}

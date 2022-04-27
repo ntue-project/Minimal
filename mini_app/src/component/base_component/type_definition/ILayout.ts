@@ -11,6 +11,11 @@ export interface ILayout{
     display?: string
     position?: string
 
+    top?: number | string,
+    right?: number | string,
+    bottom?: number | string,
+    left?: number | string,
+
     px?: number | string
     py?: number | string
     paddingLeft?: number | string
@@ -43,7 +48,9 @@ export interface ILayout{
     borderBottomColor?: string
     borderLeftColor?: string
 
+    color? : string
     backgroundColor?:string
+    opacity? : number
 
     shadowColor? : string
     shadowOpacity? : number
