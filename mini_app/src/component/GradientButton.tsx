@@ -3,7 +3,7 @@ import LinearGradient from "react-native-linear-gradient";
 import React from "react";
 import {Button} from "./base_component/Button";
 import {WIDTH} from "../utility/util";
-import {IButton} from "./base_component/type_definition/IButton";
+import {IButton} from "../type_definition/IButton";
 
 interface IGradientButton {
 

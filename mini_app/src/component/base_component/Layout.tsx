@@ -1,6 +1,6 @@
 import React, {PureComponent, ReactChildren, ReactElement} from "react";
 import {KeyboardAvoidingView, View} from "react-native";
-import {IBaseLayout, IStackLayout} from "./type_definition/ILayout";
+import {IBaseLayout, IStackLayout} from "../../type_definition/ILayout";
 import {SafeAreaView} from "react-native-safe-area-context";
 
 /**

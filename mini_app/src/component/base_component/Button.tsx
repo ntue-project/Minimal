@@ -1,7 +1,7 @@
 import React from "react";
-import {ILayout, IStackLayout} from "./type_definition/ILayout";
+import {ILayout, IStackLayout} from "../../type_definition/ILayout";
 import {Pressable, View} from "react-native";
-import {IButton} from "./type_definition/IButton";
+import {IButton} from "../../type_definition/IButton";
 
 export const Button: React.FC<IButton> = ({children,onPress, onLongPress, ...props}) => {
     return (

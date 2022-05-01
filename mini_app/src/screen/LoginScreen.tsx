@@ -4,17 +4,14 @@ import {BaseLayout, HStack, VStack} from "../component/base_component/Layout";
 import {Button} from "../component/base_component/Button";
 import {HEIGHT, WIDTH} from "../utility/util";
 
-
 // @ts-ignore
 import Logo from '../resource/logo.svg'
 import {Text, TextInput} from "react-native";
 import {useDispatch} from "react-redux";
 import {AppleIconButton, EyeIcon, EyeOffIcon, FacebookIconButton, GoogleIconButton} from "../component/Icon";
 import {VarText} from "../component/Text";
-
-interface ITextInputProps {
-    value: string | undefined
-}
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {NavigationProp} from "@react-navigation/native";
 
 const LoginScreen: React.FC = () => {
 
@@ -32,14 +29,27 @@ const LoginScreen: React.FC = () => {
 
                 <Logo width={165} height={40}/>
 
-
-
                 <VStack marginTop={HEIGHT * 0.05} height={300} justify={"space-between"} aCenter>
 
                     <HStack width={WIDTH * 0.4} height={48} aCenter justify={"space-between"}>
-                        <FacebookIconButton/>
-                        <GoogleIconButton/>
-                        <AppleIconButton/>
+                        <FacebookIconButton onPress={()=>{
+                            console.log("login with facebook")
+                            //Facebook login logic
+                            //Facebook login logic
+                            //Facebook login logic
+                        }}/>
+                        <GoogleIconButton onPress={()=>{
+                            console.log("login with google")
+                            //Google login logic
+                            //Google login logic
+                            //Google login logic
+                        }}/>
+                        <AppleIconButton onPress={()=>{
+                            console.log("login with apple")
+                            //Apple login logic
+                            //Apple login logic
+                            //Apple login logic
+                        }}/>
                     </HStack>
 
                     <HStack height={1} backgroundColor={"#ff5454"} width={WIDTH * 0.75} opacity={0.5}>

@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import SplashScreen from "./src/screen/SplashScreen";
 import LinearGradient from "react-native-linear-gradient";
-import LoginScreen from "./src/screen/LoginScreen";
+import LoginScreen from './src/screen/LoginScreen';
 import {NavigationContainer} from "@react-navigation/native";
 import {Provider} from "react-redux";
 import {store} from "./src/global_state/store";
@@ -14,32 +14,30 @@ import {store} from "./src/global_state/store";
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
-
-
 const App = () => {
-  return (
-      <Provider store={store}>
+    return (
+        <Provider store={store}>
 
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <Content/>
-        </NavigationContainer>
-      </SafeAreaProvider>
-      </Provider>
-  )
+            <SafeAreaProvider>
+                <NavigationContainer>
+                    <Content/>
+                </NavigationContainer>
+            </SafeAreaProvider>
+        </Provider>
+    )
 }
 
 const Content: React.FC = () => {
-  return (
-      <Stack.Navigator initialRouteName="LoginScreen"
-                       screenOptions={{
-                         headerShown: false
-                       }}
-      >
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-      </Stack.Navigator>
-  )
+    return (
+        <Stack.Navigator initialRouteName="LoginScreen"
+                         screenOptions={{
+                             headerShown: false
+                         }}
+        >
+            <Stack.Screen name="Splash" component={SplashScreen}/>
+            <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+        </Stack.Navigator>
+    )
 }
 
 export default App

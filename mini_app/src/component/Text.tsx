@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Text} from "react-native";
 import {Platform} from "react-native";
-import {IBaseLayout, ILayout} from "./base_component/type_definition/ILayout";
+import {IBaseLayout, ILayout} from "../type_definition/ILayout";
 
 const smaller = -2
 const accessibilityShift = 2
@@ -47,9 +47,11 @@ export const VarText: React.FC<ITextProps> = ({type, content, bold, children, ..
     return (
         <Text style={[styleObj,
             //@ts-ignore
-            {   paddingHorizontal: props.px,
+            {
+                paddingHorizontal: props.px,
                 paddingVertical: props.py,
-                fontWeight: bold ? "bold" : "normal", ...props}
+                fontWeight: bold ? "bold" : "normal",
+                ...props}
         ]}>
             {content}
             {children}
