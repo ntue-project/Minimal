@@ -1,5 +1,5 @@
 import React from "react";
-import {IBaseLayout} from "../type_definition/ILayout";
+import {IBaseLayout} from "../../type_definition/ILayout";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {KeyboardAvoidingView, TextInput} from "react-native";
 

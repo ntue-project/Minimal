@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Text} from "react-native";
 import {Platform} from "react-native";
-import {IBaseLayout, ILayout} from "../type_definition/ILayout";
+import {IBaseLayout, ILayout} from "../../type_definition/ILayout";
 
 const smaller = -2
 const accessibilityShift = 2

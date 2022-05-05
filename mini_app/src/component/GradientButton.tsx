@@ -1,23 +1,21 @@
 import {Text} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import React from "react";
-import {Button} from "./base_component/Button";
+import {Press} from "./primitive/Press";
 import {WIDTH} from "../utility/util";
-import {IButton} from "../type_definition/IButton";
+import {IPress} from "../type_definition/IPress";
 
-interface IGradientButton {
+interface IGradientButton extends IPress{
 
     onPress(): void
     title: string
+    fontWeight?: "normal" | "bold"
     type: "sm" | "md" | "lg"
-    width: number,
-    padding?: number
-    fontWeight? : "bold" | "normal"
     debugLog?: string
 
 }
 
-export const GradientButton :React.FC<IGradientButton> = (props) => {
+export const GradientButton :React.FC<IGradientButton> = ( props ) => {
 
     const buttonType = {
         width: 0,
@@ -52,7 +50,10 @@ export const GradientButton :React.FC<IGradientButton> = (props) => {
     }
 
     return(
-        <Button onPress={()=>  combinedFunction() } py={24}>
+        <Press
+            opacity={props.opacity}
+            onPress={()=>  combinedFunction() }>
+
             <LinearGradient
                 useAngle={true}
                 angle={179}
@@ -76,11 +77,11 @@ export const GradientButton :React.FC<IGradientButton> = (props) => {
 
                     color: "white",
                 }}>
-                    登入
+                    {props.title}
                 </Text>
             </LinearGradient>
-        </Button>
-       
+        </Press>
+
     )
 }
 

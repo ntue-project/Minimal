@@ -18,6 +18,7 @@ export interface ILayout{
 
     px?: number | string
     py?: number | string
+    padding?: number | string
     paddingLeft?: number | string
     paddingRight?: number | string
     paddingTop?: number | string
@@ -25,6 +26,7 @@ export interface ILayout{
 
     mx?: number | string
     my?: number | string
+    margin?: number | string
     marginTop?: number | string
     marginRight?: number | string
     marginBottom?: number | string

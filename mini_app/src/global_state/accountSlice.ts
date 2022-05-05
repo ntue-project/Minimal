@@ -1,20 +1,32 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-interface AccountState {
-    email: string,
-    password: string,
-    accountName: string
+export interface IAccountObject {
+
+    info: {
+        email: string,
+        password: string,
+        accountName: string
+    }
+    config: {
+        interestedCategory: boolean[]
+    }
 }
 
-const initialState = {
-    email: "",
-    password: "",
-    accountName: ""
+export const initialState = {
+    info: {
+        email: "",
+        password: "",
+        accountName: ""
+    },
+    config: {
+        interestedCategory: [false,false,false,false,false,false,false,false,false,false,false,false]
+    }
 
-} as AccountState
+} as IAccountObject
 
 const accountSlice = createSlice({
-    name: 'counter',
+
+    name: 'account',
     initialState,
     reducers: {
         // increment(state) {
@@ -23,11 +35,16 @@ const accountSlice = createSlice({
         // decrement(state) {
         //     state.value--
         // },
-        createAccount(state, action: PayloadAction<AccountState>) {
-            state = action.payload
+        setAccountInfo(state, action: PayloadAction<IAccountObject['info']>) {
+            state.info = action.payload
         },
+
+        setInterestedCategory(state, action: PayloadAction<IAccountObject['config']['interestedCategory']>) {
+            state.config.interestedCategory = action.payload
+        }
     },
 })
 
-export const { createAccount } = accountSlice.actions
+export const selectAccount = (state: any) => state.account
+export const { setAccountInfo, setInterestedCategory } = accountSlice.actions
 export default accountSlice.reducer

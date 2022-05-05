@@ -28,6 +28,9 @@ export const BaseLayout: React.FC<IBaseLayout> = ({children, ...props}) => {
 
                 paddingHorizontal: props.px? props.px : undefined,
                 paddingVertical: props.py? props.py : undefined,
+
+                marginHorizontal: props.mx? props.mx : undefined,
+                marginVertical: props.my? props.my : undefined,
                 ...props
             }}>
                 {children}
@@ -56,6 +59,9 @@ export const HStack: React.FC<IStackLayout> = ({children, ...props}) => {
 
             paddingHorizontal: props.px,
             paddingVertical: props.py,
+
+            marginHorizontal: props.mx? props.mx : undefined,
+            marginVertical: props.my? props.my : undefined,
             ...props
         }}>
             {children}
@@ -83,6 +89,10 @@ export const VStack: React.FC<IStackLayout> = ({children, ...props}) => {
 
             paddingHorizontal: props.px,
             paddingVertical: props.py,
+
+            marginHorizontal: props.mx? props.mx : undefined,
+            marginVertical: props.my? props.my : undefined,
+
             ...props
         }}>
             {children}
@@ -110,6 +120,9 @@ export const Center: React.FC<IStackLayout> = ({children, ...props}) => {
 
             paddingHorizontal: props.px,
             paddingVertical: props.py,
+
+            marginHorizontal: props.mx? props.mx : undefined,
+            marginVertical: props.my? props.my : undefined,
             ...props
         }}>
             {children}

@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import {GradientButton} from "../component/GradientButton";
-import {BaseLayout, HStack, VStack} from "../component/base_component/Layout";
-import {Button} from "../component/base_component/Button";
+import {BaseLayout, HStack, VStack} from "../component/primitive/Layout";
+import {Press} from "../component/primitive/Press";
 import {HEIGHT, WIDTH} from "../utility/util";
 
 // @ts-ignore
 import Logo from '../resource/logo.svg'
 import {Text, TextInput} from "react-native";
-import {useDispatch} from "react-redux";
-import {AppleIconButton, EyeIcon, EyeOffIcon, FacebookIconButton, GoogleIconButton} from "../component/Icon";
-import {VarText} from "../component/Text";
+import {useDispatch, useSelector} from "react-redux";
+import {AppleIconButton, EyeIcon, EyeOffIcon, FacebookIconButton, GoogleIconButton} from "../component/primitive/Icon";
+import {VarText} from "../component/primitive/Text";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {NavigationProp} from "@react-navigation/native";
+import {selectAccount} from "../global_state/accountSlice";
 
 const LoginScreen: React.FC = () => {
 
@@ -22,6 +23,7 @@ const LoginScreen: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false)
 
     const dispatch = useDispatch()
+    const account = useSelector(selectAccount)
 
     return (
         <BaseLayout center>
@@ -85,7 +87,6 @@ const LoginScreen: React.FC = () => {
                             </HStack>
                         </VStack>
 
-
                         <VStack>
                             <VarText type={"heading3"} content={"密碼"} marginBottom={8} marginLeft={8} color="#666"/>
                             <HStack width={WIDTH * 0.8} aCenter borderRadius={15} backgroundColor="#f5f5f5"
@@ -116,11 +117,7 @@ const LoginScreen: React.FC = () => {
                     </VStack>
                 </VStack>
 
-
-
-
                 <VStack>
-
 
                     <GradientButton type={"lg"} title={"哈囉"} width={WIDTH * 0.65} onPress={() => {
                         console.log("hi!!!")
@@ -135,7 +132,7 @@ const LoginScreen: React.FC = () => {
                         >
                             沒有帳號？
                         </Text>
-                        <Button>
+                        <Press>
                             <Text
                                 style={{
                                     fontSize: 14,
@@ -144,7 +141,7 @@ const LoginScreen: React.FC = () => {
                             >
                                 註冊
                             </Text>
-                        </Button>
+                        </Press>
                     </HStack>
 
                 </VStack>

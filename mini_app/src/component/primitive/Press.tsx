@@ -1,9 +1,9 @@
 import React from "react";
 import {ILayout, IStackLayout} from "../../type_definition/ILayout";
 import {Pressable, View} from "react-native";
-import {IButton} from "../../type_definition/IButton";
+import {IPress} from "../../type_definition/IPress";
 
-export const Button: React.FC<IButton> = ({children,onPress, onLongPress, ...props}) => {
+export const Press: React.FC<IPress> = ({children,onPress, onLongPress, ...props}) => {
     return (
         //@ts-ignore
         <Pressable style={{

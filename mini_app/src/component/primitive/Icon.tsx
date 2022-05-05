@@ -2,12 +2,12 @@ import React from "react";
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Pressable} from "react-native";
-import {IButton} from "../type_definition/IButton";
+import {IPress} from "../../type_definition/IPress";
 
 export const EyeIcon: React.FC = () => <Feather name="eye" size={18} color="#bbb"/>;
 export const EyeOffIcon: React.FC = () => <Feather name="eye-off" size={18} color="#bbb"/>;
 
-export const GoogleIconButton: React.FC<IButton> = ({onPress}) => {
+export const GoogleIconButton: React.FC<IPress> = ({onPress}) => {
 
     return (
         <Pressable style={{
@@ -25,7 +25,7 @@ export const GoogleIconButton: React.FC<IButton> = ({onPress}) => {
 
 }
 
-export const FacebookIconButton: React.FC<IButton> = ({onPress}) => {
+export const FacebookIconButton: React.FC<IPress> = ({onPress}) => {
 
     return (
         <Pressable style={{
@@ -43,7 +43,7 @@ export const FacebookIconButton: React.FC<IButton> = ({onPress}) => {
 
 }
 
-export const AppleIconButton: React.FC<IButton> = ({onPress}) => {
+export const AppleIconButton: React.FC<IPress> = ({onPress}) => {
 
     return (
         <Pressable style={{
