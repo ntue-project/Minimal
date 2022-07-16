@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {IProductDataList, IProductItem} from "../screen/MainScreen";
 
 export interface IAccountObject {
 
@@ -7,18 +8,21 @@ export interface IAccountObject {
         password: string,
         accountName: string
     }
-    config: {
+
+    personalization: {
         interestedCategory: boolean[]
+        wishlistedProduct: IProductDataList
     }
 }
 
 export const initialState = {
+
     info: {
         email: "",
         password: "",
         accountName: ""
     },
-    config: {
+    personalization: {
         interestedCategory: [false,false,false,false,false,false,false,false,false,false,false,false]
     }
 
@@ -39,8 +43,8 @@ const accountSlice = createSlice({
             state.info = action.payload
         },
 
-        setInterestedCategory(state, action: PayloadAction<IAccountObject['config']['interestedCategory']>) {
-            state.config.interestedCategory = action.payload
+        setInterestedCategory(state, action: PayloadAction<IAccountObject['personalization']['interestedCategory']>) {
+            state.personalization.interestedCategory = action.payload
         }
     },
 })

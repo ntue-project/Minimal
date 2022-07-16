@@ -1,12 +1,13 @@
 import React from "react";
-import {IBaseLayout} from "../../type_definition/ILayout";
+import {IArrangeableLayout, IBaseLayout, ILayout} from "../../type_definition/ILayout";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {KeyboardAvoidingView, TextInput} from "react-native";
+import {ITextProps} from "./Text";
 
-interface IInputProps {
+interface IInputProps extends IArrangeableLayout, ITextProps{
 
     placeholder?: string
-    value: string
+    value?: string
     onChangeText?(text: string): void
     textContentType?:
 
@@ -44,11 +45,39 @@ interface IInputProps {
 }
 
 export const Input: React.FC<IInputProps> = (props) => {
+
+    //Extract style props
+    //Extract style props
+    //Extract style props
+
+    let styleProps = { ...props }
+
+    delete styleProps.placeholder
+    delete styleProps.value
+    delete styleProps.onChangeText
+    delete styleProps.textContentType,
+    delete styleProps.px
+    delete styleProps.py
+    delete styleProps.mx
+    delete styleProps.my
+
     return (
         // @ts-ignore
         <TextInput style={{
+
             height: 32,
             width: 144,
+
+            justifyContent: props.center ? "center" : props.jCenter ? "center" : props.justify,
+            alignItems: props.center ? "center" : props.aCenter ? "center" : props.align,
+
+            paddingHorizontal: props.px? props.px : undefined,
+            paddingVertical: props.py? props.py : undefined,
+
+            marginHorizontal: props.mx? props.mx : undefined,
+            marginVertical: props.my? props.my : undefined,
+
+            ...styleProps
         }}
                    placeholder={props.placeholder}
                    value={props.value}

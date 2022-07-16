@@ -8,7 +8,7 @@ import {HEIGHT, WIDTH} from "../utility/util";
 import Logo from '../resource/logo.svg'
 import {Text, TextInput} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
-import {AppleIconButton, EyeIcon, EyeOffIcon, FacebookIconButton, GoogleIconButton} from "../component/primitive/Icon";
+import {AppleIconButton, EyeIcon, EyeOffIcon, FacebookIconButton, GoogleIconButton} from "../component/Icon";
 import {VarText} from "../component/primitive/Text";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {NavigationProp} from "@react-navigation/native";

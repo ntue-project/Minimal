@@ -11,16 +11,16 @@ import {IconProps} from "react-native-vector-icons/Icon";
 import {Press} from "../component/primitive/Press";
 import {useNavigation} from "@react-navigation/native";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
-import {RootStackParamList} from "../../App";
+import {RootParamList} from "../../App";
 
 const InterestItem = (props: { uri: object, index: number }) => {
 
     const accountData = useSelector(selectAccount)
     const dispatch = useDispatch()
-    const [interests, setInterests] = useState<IAccountObject["config"]["interestedCategory"]>()
+    const [interests, setInterests] = useState<IAccountObject["personalization"]["interestedCategory"]>()
 
     useEffect(() => {
-        setInterests(accountData.config.interestedCategory)
+        setInterests(accountData.personalization.interestedCategory)
     }, [accountData])
 
     return (
@@ -47,7 +47,7 @@ const InterestItem = (props: { uri: object, index: number }) => {
     )
 }
 
-type MainScreenProps = NativeStackNavigationProp<RootStackParamList, 'MainScreen'>;
+type MainScreenProps = NativeStackNavigationProp<RootParamList, '首頁'>;
 
 const InterestScreen: React.FC = () => {
 
@@ -55,10 +55,10 @@ const InterestScreen: React.FC = () => {
 
     const accountData = useSelector(selectAccount)
     const dispatch = useDispatch()
-    const [interests, setInterests] = useState<IAccountObject["config"]["interestedCategory"]>()
+    const [interests, setInterests] = useState<IAccountObject["personalization"]["interestedCategory"]>()
 
     useEffect(() => {
-        setInterests(accountData.config.interestedCategory)
+        setInterests(accountData.personalization.interestedCategory)
     }, [accountData])
 
     return (
@@ -135,14 +135,18 @@ const InterestScreen: React.FC = () => {
 
                     <GradientButton
                         opacity={interests?.some(item => item) ? 1 : .5}
-                        onPress={() => {
-                            navigation.navigate("MainScreen")
-                        }}
+                        onPress={interests?.some(item => item) ?
+                            () => {
+                                navigation.navigate('TabContent', {screen: '首頁'})
+                            } :
+                            () => {
+                            }
+                        }
                         title={"確定"} type={"lg"} width={WIDTH * 0.6}/>
                     <Press
                         onPress={() => {
-                            navigation.navigate("MainScreen")
-                            dispatch(setInterestedCategory([false,false,false,false,false,false,false,false,false,false,false,false ]))
+                            navigation.navigate('TabContent', {screen: '首頁'});
+                            dispatch(setInterestedCategory([false, false, false, false, false, false, false, false, false, false, false, false]))
                         }}
                     >
                         <VarText type={"heading3"} content={"略過"} color={"#888"}/>

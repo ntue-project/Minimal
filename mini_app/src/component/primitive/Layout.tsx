@@ -16,7 +16,9 @@ import {SafeAreaView} from "react-native-safe-area-context";
 export const BaseLayout: React.FC<IBaseLayout> = ({children, ...props}) => {
     return (
         //@ts-ignore
-        <SafeAreaView style={{
+        <SafeAreaView
+            edges={["top", "left", "right"]}
+            style={{
             flex: 1,
             backgroundColor: "white"
         }}>

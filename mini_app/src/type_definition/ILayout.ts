@@ -1,6 +1,6 @@
-import {ReactElement} from "react";
+import {ReactElement, ReactNode} from "react";
 
-export interface ILayout{
+export interface ILayout {
 
     children?: ReactElement | ReactElement[]
 
@@ -65,7 +65,7 @@ export interface ILayout{
     elevation?: number
 }
 
-export interface IStackLayout extends ILayout {
+export interface IArrangeableLayout extends ILayout {
 
     justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-evenly"
     align?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline"
@@ -76,16 +76,8 @@ export interface IStackLayout extends ILayout {
 
 }
 
-export interface IBaseLayout extends ILayout {
+export interface IStackLayout extends IArrangeableLayout {}
 
-    justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-evenly"
-    align?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline"
+export interface IBaseLayout extends IArrangeableLayout {}
 
-    jCenter?: boolean //stands for justify center
-    aCenter?: boolean //stands for align center
-    center?: boolean //stands for align center
-
-}
-
-export interface ICenterLayout extends ILayout {
-}
+export interface ICenterLayout extends IArrangeableLayout {}
