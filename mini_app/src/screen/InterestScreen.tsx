@@ -17,6 +17,7 @@ const InterestItem = (props: { uri: object, index: number }) => {
 
     const accountData = useSelector(selectAccount)
     const dispatch = useDispatch()
+
     const [interests, setInterests] = useState<IAccountObject["personalization"]["interestedCategory"]>()
 
     useEffect(() => {
@@ -24,25 +25,32 @@ const InterestItem = (props: { uri: object, index: number }) => {
     }, [accountData])
 
     return (
-        <Pressable style={{
-            margin: 4,
-            borderRadius: 15,
-            height: WIDTH * 0.25,
-            width: WIDTH * 0.25,
-        }}
-                   onPress={() => {
 
-                       dispatch(setInterestedCategory(interests!.map((x, index) => index === props.index ? x = !x : x)))
-                   }}
+        <Pressable
+
+            style={{
+                margin: 4,
+                borderRadius: 15,
+                height: WIDTH * 0.25,
+                width: WIDTH * 0.25,
+            }}
+
+            onPress={() => {
+                dispatch(setInterestedCategory(interests!.map(( x, index) => index === props.index ? x = !x : x )))
+            }}
+
         >
-            <Image source={props.uri}
-                   style={{
-                       //@ts-ignore
-                       opacity: interests ? interests[props.index] ? 1 : .5 : .5,
-                       borderRadius: 15,
-                       height: WIDTH * 0.25,
-                       width: WIDTH * 0.25
-                   }}/>
+            <Image
+
+                source={props.uri}
+                style={{
+                    //@ts-ignore
+                    opacity: interests ? interests[props.index] ? 1 : .5 : .5,
+                    borderRadius: 15,
+                    height: WIDTH * 0.25,
+                    width: WIDTH * 0.25
+            }}/>
+
         </Pressable>
     )
 }

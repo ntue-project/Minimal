@@ -11,6 +11,7 @@ const persistConfig = {
 };
 
 export const store = configureStore({
+
     reducer: {
         account: persistReducer(persistConfig, accountReducer),
     },

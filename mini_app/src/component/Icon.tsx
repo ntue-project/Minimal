@@ -76,16 +76,40 @@ export const ShoppingCart: React.FC<IPress> = ({onPress}) => {
     return (
         <Pressable style={{
 
-            borderRadius: 15,
-            backgroundColor: "#eee",
-            height: 54,
-            width: 54,
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: "#ddd",
+            backgroundColor: "#f2f2f2",
+            height: 50,
+            width: 50,
             justifyContent: "center",
             alignItems: "center",
             paddingBottom: 2
         }}
                    onPress={onPress}>
-            <Feather name="shopping-cart" size={22} color="#666"/>
+            <Feather name="shopping-cart" size={18} color="#666"/>
+        </Pressable>
+    )
+
+}
+
+export const MainScreenSearchButton: React.FC<IPress> = ({onPress}) => {
+
+    return (
+        <Pressable style={{
+
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: "#ff5e3e",
+            backgroundColor: "#ff8742",
+            height: 50,
+            width: 50,
+            justifyContent: "center",
+            alignItems: "center",
+            paddingBottom: 2
+        }}
+                   onPress={onPress}>
+            <Feather name="search" size={18} color="#fff"/>
         </Pressable>
     )
 
@@ -105,12 +129,12 @@ export const WishlistHeartIconButton: React.FC<IPressWithProps> = ({onPress, pro
             justifyContent: "center",
             alignItems: "center",
             elevation: 8,
-            shadowOpacity: .25,
+            shadowOpacity: .2,
             shadowOffset: {
                 height: 1,
                 width: 0
             },
-            shadowRadius: 4,
+            shadowRadius: 6,
         }}
                    onPress={onPress}>
             <MaskedView
@@ -123,7 +147,7 @@ export const WishlistHeartIconButton: React.FC<IPressWithProps> = ({onPress, pro
                             justifyContent: 'center',
                             alignItems: 'center',
                         }}>
-                        {props!.wishlisted? // weather it is hearted.
+                        {props!.liked? // weather it is hearted.
                             <FontAwesome
                                 name="heart"
                                 size={18}
@@ -140,7 +164,7 @@ export const WishlistHeartIconButton: React.FC<IPressWithProps> = ({onPress, pro
                     angle={170}
                     angleCenter={{ x: 0.5, y: 0.7}}
                     locations={[0, 0.6]}
-                    colors={['#ffe8d3', "#ff5234"]}
+                    colors={['#ffd5a2', "#ff5234"]}
                     style={{ flex: 1 }}
                 />
             </MaskedView>

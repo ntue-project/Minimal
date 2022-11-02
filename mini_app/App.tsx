@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {StatusBar, StyleSheet, Text, View} from "react-native";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import {HStack} from "./src/component/primitive/Layout";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
@@ -28,6 +28,7 @@ export type RootParamList = {
     ProductDetailScreen : undefined
 
     TabContent: { screen: string }
+
     首頁: undefined;
     收藏: undefined
     通知: undefined
@@ -39,7 +40,10 @@ const Tab = createBottomTabNavigator<RootParamList>()
 
 const App = () => {
     return (
+
         <Provider store={store}>
+
+            <StatusBar barStyle={"dark-content"}/>
 
             <SafeAreaProvider>
                 <NavigationContainer>
@@ -52,7 +56,7 @@ const App = () => {
 
 const NativeStackContent: React.FC = () => {
     return (
-        <Stack.Navigator initialRouteName="InterestScreen"
+        <Stack.Navigator initialRouteName="TabContent"
                          screenOptions={{
                              headerShown: false
                          }}
